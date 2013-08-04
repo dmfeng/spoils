@@ -4,9 +4,7 @@
    Date: 13-2-7
    Time: 下午2:56
    To change this template use File | Settings | File Templates.
-
 extends ../layout
-
 block content
     div.row
         div#js-user_list.span10.offset1
@@ -14,12 +12,18 @@ block content
                 thead: tr
                     th 登录名
                     th 昵称
+                    th 消费
+                    th 支付
+                    th 还需支付
                     th
                 tbody
                     - each user in userList
                         tr
                             td #{user.name}
                             td #{user.username}
+                            th #{user.money}
+                            th #{user.payMoney}
+                            th #{user.needPay}
                             td
-                                //a(href="/users/edit/#{user._id}") 编辑
-                                //a(href="/users/del/#{user._id}")  删除
+//a(href="/users/edit/#{user._id}") 编辑
+//a(href="/users/del/#{user._id}")  删除
