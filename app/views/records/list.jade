@@ -1,0 +1,52 @@
+//
+   Created with JetBrains WebStorm.
+   User: feng
+   Date: 13-1-28
+   Time: 下午11:44
+   To change this template use File | Settings | File Templates.
+
+extends ../layout
+
+block append styles
+    link(rel='stylesheet', href='/css/datepicker.css')
+    link(rel='stylesheet', href='/css/page/record_list.css')
+
+block content
+    div.row
+        div#js-search_query.span10.offset1
+            form.form-search.well(action="/record/list",method="get")
+                label(for="j-begin_date") 开始日期：
+                div.input-append
+                    input#j-begin_date.span2(name="begin",type="text",value="#{begin_date}")
+                    span.add-on: i.icon-calendar
+                label(for="j-end_date") 结束日期：
+                div.input-append
+                    input#j-end_date.span2(name="end",type="text",value="#{end_date}")
+                    span.add-on: i.icon-calendar
+                button#js-submit.btn(type="submit") 搜索
+    div.row
+        div#js-record_list.span10.offset1
+            table.table.table-striped.table-condensed
+                thead: tr
+                    th 日期
+                    th 付款者
+                    th 金额
+                    th 参与人
+                    th 操作
+                    th 备注
+                tbody
+                    - each record in recordList
+                        tr
+                            td #{record.createdAt}
+                            td #{record.payer.username}
+                            td #{record.money}
+                            td #{record.users}
+                            td
+                                a(href="/record/edit/#{record._id}") 编辑
+                                //a(href="/record/del/#{record._id}")  删除
+                            td #{record.mark}
+            != createPagination(allCount, perPage , page)
+
+block append scripts
+    script(src="/js/bootstrap-datepicker.js", type="text/javascript")
+    script(src="/js/page/record_list.js", type="text/javascript")

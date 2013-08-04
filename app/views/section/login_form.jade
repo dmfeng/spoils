@@ -1,0 +1,22 @@
+//
+   Created with JetBrains WebStorm.
+   User: feng
+   Date: 13-1-14
+   Time: 下午6:20
+   To change this template use File | Settings | File Templates.
+
+form.form-horizontal.form-signin(action="/login",method="post")
+    fieldset
+        legend 请登录
+        div.control-group
+            label.control-label(for="inputEmail") 用户名
+            div.controls
+                input.input-block-level(id="inputEmail",name="name",type="text",placeholder="用户名")
+        div.control-group
+            label.control-label(for="inputpwd") 密码
+            div.controls
+                input.input-block-level(id="inputpwd",name="pass",type="password",placeholder="密码")
+        div.control-group
+            div.controls
+                input(type="hidden",name="fromurl",value="#(fromurl)")
+                button.btn(type="submit") 登录

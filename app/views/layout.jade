@@ -1,0 +1,15 @@
+doctype 5
+html
+    head
+        title 集体财务记录系统-#{title}
+        block styles
+            link(rel='stylesheet', href='/css/bootstrap.css')
+    body
+        block body_content
+        div.container
+            include section/header
+            block content
+            include section/footer
+        block scripts
+            script(src="/js/jquery.js", type="text/javascript")
+            script(src="/js/bootstrap.js", type="text/javascript")

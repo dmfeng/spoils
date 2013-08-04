@@ -1,0 +1,16 @@
+//
+   Created with JetBrains WebStorm.
+   User: feng
+   Date: 13-1-14
+   Time: 下午6:18
+   To change this template use File | Settings | File Templates.
+
+extends ../layout
+block append styles
+    link(rel='stylesheet', href='/css/page/login.css')
+block header
+    div.page-header
+        h1.muted 财务记录系统
+            small &nbsp;记录日常的消费
+block content
+    include ../section/login_form

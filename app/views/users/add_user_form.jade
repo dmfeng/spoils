@@ -1,0 +1,29 @@
+//
+   Created with JetBrains WebStorm.
+   User: feng
+   Date: 13-1-28
+   Time: 下午6:06
+   To change this template use File | Settings | File Templates.
+form#j-add_form.form-horizontal.well(action="/users/add",method="post")
+    fieldset
+        legend 添加用户
+        div#js-add_errmsg
+        div.control-group
+            label.control-label 用户名
+            div.controls
+                input.span4(name="name",type="text")
+        div.control-group
+            label.control-label 密码
+            div.controls
+                input.span4(name="password",type="password")
+        div.control-group
+            label.control-label 昵称
+            div.controls
+                input.span4(name="username",type="text")
+        div.control-group
+            label.control-label 邮箱
+            div.controls
+                input.span4(name="email",type="text")
+        div.control-group
+            div.controls
+                button#js-submit.btn(type="submit",data-loading-text="提交中...") 保存

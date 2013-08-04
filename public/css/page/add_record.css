@@ -1,0 +1,2 @@
+.radio, .checkbox{ padding-left: 13px; }
+.radio input[type="radio"], .checkbox input[type="checkbox"] { margin-left: -13px; }

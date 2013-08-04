@@ -1,0 +1,15 @@
+//
+   Created with JetBrains WebStorm.
+   User: feng
+   Date: 13-1-28
+   Time: 下午5:46
+   To change this template use File | Settings | File Templates.
+
+extends ../layout
+
+block content
+    div.row
+        div.span10.offset1
+            include add_user_form
+block append scripts
+    script(src="/js/form_post.js", type="text/javascript")

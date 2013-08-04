@@ -1,0 +1,25 @@
+//
+   Created with JetBrains WebStorm.
+   User: feng
+   Date: 13-2-7
+   Time: 下午2:56
+   To change this template use File | Settings | File Templates.
+
+extends ../layout
+
+block content
+    div.row
+        div#js-user_list.span10.offset1
+            table.table.table-striped.table-condensed
+                thead: tr
+                    th 登录名
+                    th 昵称
+                    th
+                tbody
+                    - each user in userList
+                        tr
+                            td #{user.name}
+                            td #{user.username}
+                            td
+                                //a(href="/users/edit/#{user._id}") 编辑
+                                //a(href="/users/del/#{user._id}")  删除

@@ -1,0 +1,54 @@
+//
+   Created with JetBrains WebStorm.
+   User: feng
+   Date: 13-2-6
+   Time: 下午5:30
+   To change this template use File | Settings | File Templates.
+
+form#j-add_form.form-horizontal.well(action="/record/edit/#{record._id}",method="post")
+    fieldset
+        legend 编辑记录
+        div#js-add_errmsg
+        div#js-add_errmsg2.alert.fade.in(style="display:none;")
+            button.close(type="button",data-dismiss="alert") ×
+            | 好的设计要充分考虑到对环境造成的影响
+        div.control-group
+            label.control-label(for="js-money") 金额
+            div.controls
+                div.input-append
+                    input#js-money.span2(name="money",type="text",value="#{record.money}")
+                    span.add-on .00
+        div.control-group
+            label.control-label(for="j-date") 日期
+            div.controls
+                div.input-append
+                    input#j-date.span2(name="cdate",type="text",value="#{record.created_At}")
+                    span.add-on: i.icon-calendar
+        div.control-group
+            label.control-label 付款者
+            div.controls
+                - each user,idx in users
+                    label.radio.inline
+                        - if( (user._id+'') == record.payer )
+                            input(type="radio",xxx="sd",name="payer",value="#{user._id}",checked)
+                        - else
+                            input(type="radio",name="payer",value="#{user._id}")
+                        | #{user.username}
+        div.control-group
+            label.control-label 参与者
+            div.controls
+                - each user,idx in users
+                    label.checkbox.inline
+                        - if( record.users.indexOf( user._id ) > -1 )
+                            input(type="checkbox",name="users[]",value="#{user._id}",checked)
+                        - else
+                            input(type="checkbox",name="users[]",value="#{user._id}")
+                        | #{user.username}
+        div.control-group
+            label.control-label(for="js-money") 备注
+            div.controls
+                input.span4(id="js-mark",name="mark",type="text",value="#{record.mark}")
+        div.control-group
+            div.controls
+                button#js-submit.btn(type="submit",data-loading-text="提交中...") 保存
+

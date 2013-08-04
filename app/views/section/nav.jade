@@ -1,0 +1,15 @@
+ul.nav.nav-pills.pull-right
+    -if( pageId == 'addRecord' )
+        li.active: a(href="/record/add") 添加
+    -else
+        li: a(href="/record/add") 添加
+
+    -if( pageId == 'record' )
+        li.active: a(href="/record/list") 记录
+    -else
+        li: a(href="/record/list") 记录
+
+    -if( pageId == 'user' )
+        li.active: a(href="/users/list") 用户
+    -else
+        li: a(href="/users/list") 用户
